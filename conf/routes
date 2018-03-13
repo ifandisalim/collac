@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+POST    /users                      controllers.UserController.create
+GET     /users/:userId              controllers.UserController.get(userId: Integer)
+
+POST    /authenticate               controllers.AuthenticationController.authenticate
+
+POST    /events                     controllers.EventController.create
+GET     /events/:eventId            controllers.EventController.get(eventId: Integer)
+POST    /events/:eventId/members    controllers.EventController.addMembers(eventId: Integer)
+POST    /events/:eventId/tasks      controllers.EventController.addTask(eventId: Integer)
+
+POST    /tasks/:taskId/assigned     controllers.TaskController.addAssigned(taskId: Integer)
+PATCH   /tasks/:taskId              controllers.TaskController.updateTask(taskId: Integer)
+
+
+
+POST    /graphql                    controllers.HomeController.graphQL

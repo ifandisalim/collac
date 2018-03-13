@@ -1,0 +1,28 @@
+type Schema {
+    query: Query
+}
+
+type Query {
+    users: [User]
+    events: [Event]
+}
+
+type User {
+    id: Int
+    firstName: String
+    lastName: String
+    email: String
+    pushToken: String
+    eventsOwned: [Event]
+}
+
+
+type Event {
+    id: Int!
+    title: String
+    description: String
+    due: String
+    owner: User
+    socketIoRoom: String
+}
+

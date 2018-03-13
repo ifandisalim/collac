@@ -1,0 +1,25 @@
+type Schema {
+    query: Query
+}
+
+type Query {
+    users: [User]
+}
+
+type User {
+    id: Int
+    firstName: String
+    lastName: String
+    email: String
+    pushToken: String
+    credential: Credential
+    eventsOwned: [Event]
+    eventsJoined: [Event]
+}
+
+type Credential {
+    id: Int
+    username: String
+    password: String
+}
+
