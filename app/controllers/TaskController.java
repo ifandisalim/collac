@@ -23,12 +23,10 @@ import static play.mvc.Results.created;
 
 public class TaskController {
 
-    private final FormFactory formFactory;
     private final TaskService taskService;
 
     @Inject
-    public TaskController(FormFactory formFactory, TaskService taskService) {
-        this.formFactory = formFactory;
+    public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 

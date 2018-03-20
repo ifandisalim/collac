@@ -18,6 +18,8 @@ POST    /events/:eventId/tasks      controllers.EventController.addTask(eventId:
 POST    /tasks/:taskId/assigned     controllers.TaskController.addAssigned(taskId: Integer)
 PATCH   /tasks/:taskId              controllers.TaskController.updateTask(taskId: Integer)
 
+POST    /friendship                 controllers.FriendshipController.create
+
 
 
 POST    /graphql                    controllers.HomeController.graphQL

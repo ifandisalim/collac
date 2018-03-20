@@ -17,11 +17,13 @@ import java.io.File;
 public class GraphQLConfiguration {
 
     private GraphQL graphQL;
+    private final RootQueryResolver rootQueryResolver;
     private final UserResolver userResolver;
     private final EventResolver eventResolver;
 
     @Inject
-    public GraphQLConfiguration(UserResolver userResolver, EventResolver eventResolver) {
+    public GraphQLConfiguration(RootQueryResolver rootQueryResolver, UserResolver userResolver, EventResolver eventResolver) {
+        this.rootQueryResolver = rootQueryResolver;
         this.userResolver = userResolver;
         this.eventResolver = eventResolver;
         this.graphQL = initializeGraphQL();
@@ -31,9 +33,8 @@ public class GraphQLConfiguration {
         GraphQLSchema graphQLSchema = SchemaParser.newParser()
                 .file("graphql/schema.graphqls")
                 .resolvers(
-                        new RootQueryResolver(),
-                        userResolver,
-                        eventResolver
+                       rootQueryResolver,
+                        userResolver
                 )
                 .build()
                 .makeExecutableSchema();

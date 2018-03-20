@@ -3,9 +3,16 @@ type Schema {
 }
 
 type Query {
+    user(id: Int): User
     users: [User]
+
+    event(id: Int): Event
     events: [Event]
+
+    task(id: Int): Task
+    tasks: [Task]
 }
+
 
 type User {
     id: Int
@@ -14,6 +21,8 @@ type User {
     email: String
     pushToken: String
     eventsOwned: [Event]
+    eventsJoined: [Event]
+    friends: [User]
 }
 
 
@@ -23,6 +32,15 @@ type Event {
     description: String
     due: String
     owner: User
+    members: [User]
     socketIoRoom: String
 }
 
+type Task {
+    id: Int!
+    assigned: User
+    creator: User
+    title: String
+    isDone: Boolean
+    event: Event
+}

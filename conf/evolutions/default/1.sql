@@ -7,7 +7,8 @@ create table friendship (
   id                            integer auto_increment not null,
   friend_requester_id           integer,
   friend_accepter_id            integer,
-  date                          datetime(6),
+  date                          varchar(255),
+  accepted                      tinyint(1) default 0 not null,
   constraint pk_friendship primary key (id)
 );
 

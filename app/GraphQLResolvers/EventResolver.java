@@ -16,8 +16,9 @@ public class EventResolver implements GraphQLResolver<Event> {
         this.eventService = eventService;
     }
 
-    public User owner(Event event) {
-        return User.find.byId(event.getOwner().getId());
-    }
+//    public User owner(Event event) {
+//        System.out.println("======owner() inside event query======");
+//        return User.find.byId(event.getOwner().getId());
+//    }
 
 }

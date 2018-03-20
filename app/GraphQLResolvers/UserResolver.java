@@ -6,6 +6,7 @@ import models.Credential;
 import models.Event;
 import models.User;
 import services.EventService;
+import services.FriendshipService;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -13,16 +14,16 @@ import java.util.List;
 
 public class UserResolver implements GraphQLResolver<User> {
 
-    private final EventService eventService;
+    private final FriendshipService friendshipService;
 
     @Inject
-    public UserResolver(EventService eventService) {
-        this.eventService = eventService;
+    public UserResolver(FriendshipService friendshipService) {
+        this.friendshipService = friendshipService;
     }
 
 
-    public List<Event> eventsOwned(User user) {
-        return eventService.getEventsOwnedByUser(user.getId());
+    public List<User> friends(User user) {
+        return friendshipService.getAllFriends(user.getId());
     }
 
 }

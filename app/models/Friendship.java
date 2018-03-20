@@ -2,9 +2,9 @@ package models;
 
 import io.ebean.Finder;
 import io.ebean.Model;
+import play.data.validation.Constraints;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table
@@ -16,17 +16,22 @@ public class Friendship extends Model {
 
     @ManyToOne
     @JoinColumn(name = "friend_requester_id")
+    @Constraints.Required
     private User friendRequester;
 
     @ManyToOne
     @JoinColumn(name = "friend_accepter_id")
+    @Constraints.Required
     private User friendAccepter;
 
-    private Date date;
+    private String date;
+
+    private boolean accepted;
 
     public static Finder<Integer, Friendship> find = new Finder<>(Friendship.class);
 
     public Friendship() {
+        this.accepted = false;
     }
 
     public Integer getId() {
@@ -53,12 +58,20 @@ public class Friendship extends Model {
         this.friendAccepter = friendAccepter;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        this.accepted = accepted;
     }
 
     @Override
@@ -68,6 +81,7 @@ public class Friendship extends Model {
                 ", friendRequester=" + friendRequester +
                 ", friendAccepter=" + friendAccepter +
                 ", date=" + date +
+                ", accepted=" + accepted +
                 '}';
     }
 }
