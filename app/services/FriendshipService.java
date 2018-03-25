@@ -69,7 +69,7 @@ public class FriendshipService {
                 .collect(Collectors.toList());
 
         allFriendsId.addAll(friendsRequestedId);
-        
+
 
         return User.find.query().where().in("id", allFriendsId).findList();
 

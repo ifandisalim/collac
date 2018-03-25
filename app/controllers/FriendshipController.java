@@ -8,7 +8,6 @@ import exceptions.DBException;
 import exceptions.NotFoundException;
 import helpers.FormValidationHelper;
 import models.Friendship;
-import models.User;
 import play.data.Form;
 import play.data.FormFactory;
 import play.libs.Json;
