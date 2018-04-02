@@ -21,7 +21,7 @@ import services.UserService;
 
 import javax.inject.Inject;
 
-@TestActionAnnotation
+
 public class UserController extends Controller {
 
     private final FormFactory formFactory;
