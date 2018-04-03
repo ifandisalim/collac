@@ -38,6 +38,20 @@ public class TaskService {
         return retrievedTask;
     }
 
+
+    public List<Task> getTasksOfUser(Integer userId) throws DBException  {
+        try {
+            return Task.find.query()
+                    .where()
+                    .eq("assigned_id", userId)
+                    .findList();
+
+        } catch (RuntimeException e) {
+            throw new DBException(e.getCause().getMessage());
+        }
+
+    }
+
     public void update(Task task) throws DBException {
 
         try{
@@ -69,4 +83,5 @@ public class TaskService {
         }
 
     }
+
 }

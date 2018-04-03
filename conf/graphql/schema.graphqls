@@ -23,6 +23,7 @@ type User {
     eventsOwned: [Event]
     eventsJoined: [Event]
     friends: [User]
+    tasks: [Task]
 }
 
 
