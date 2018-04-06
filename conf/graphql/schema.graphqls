@@ -34,6 +34,7 @@ type Event {
     due: String
     owner: User
     members: [User]
+    tasks: [Task]
     socketIoRoom: String
 }
 
