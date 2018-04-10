@@ -115,7 +115,7 @@ public class EventController {
         task.setDone(false);
 
         try {
-            return created(Json.toJson(eventService.addTask(eventId, task)));
+            return ok(Json.toJson(eventService.addTask(eventId, task)));
         }
         catch (NotFoundException e) {
             return ErrorFactory.create(new Error(Http.Status.BAD_REQUEST, e.getMessage()));

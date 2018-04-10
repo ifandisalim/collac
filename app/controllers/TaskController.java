@@ -20,6 +20,7 @@ import javax.inject.Inject;
 
 import static play.mvc.Controller.request;
 import static play.mvc.Results.created;
+import static play.mvc.Results.ok;
 
 public class TaskController {
 
@@ -45,7 +46,7 @@ public class TaskController {
             return ErrorFactory.create(Http.Status.INTERNAL_SERVER_ERROR, e.getMessage());
         }
 
-        return created();
+        return ok(Json.toJson("Success"));
     }
 
 
@@ -61,7 +62,7 @@ public class TaskController {
             return ErrorFactory.create(Http.Status.INTERNAL_SERVER_ERROR, e.getMessage());
         }
 
-        return created();
+        return ok();
     }
 
 }

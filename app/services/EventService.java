@@ -90,8 +90,8 @@ public class EventService {
             throw new NotFoundException(newTask.getCreator().getId());
         }
 
-        taskService.create(eventId, newTask);
-        return retrievedEvent.getId();
+        Task createdTask = taskService.create(eventId, newTask);
+        return createdTask.getId();
     }
 
 
